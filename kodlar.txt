@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>site</title>
+    <style>
+        .kutu1{
+            background-color: beige;
+            width: 650px;
+            height: 180px; 
+            border:7px groove lightgray;
+            border-radius: 5px;
+            margin-top: 10;
+            margin-left: 10;
+        }
+        .kutu2{
+            background-color: lightskyblue;
+            width: 500px;
+            height: 450px; 
+            border:7px groove lightgray;
+            border-radius: 5px;
+            margin-top: 600;
+            margin-left: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="kutu1"><h2>HESAP MAKİNESİ </h2>
+        <h2 class="padd">sayılarınızı girin ve bir işlem seçin </h2>
+        <label for="input1">1.sayı:</label>
+        <input type="text" id="input1">
+        <label for="input2">2.sayı:</label>
+        <input type="text" id="input2">
+        <input type="button" value="topla" onclick="topla()">
+        <input type="button" value="çıkar" onclick="çıkar()">
+        <input type="button" value="çarp" onclick="çarp()">
+        <input type="button" value="böl" onclick="böl()">
+        <label for="sonuc">sonuç:</label>
+        <input type="text" id="sonuc" readonly>  
+    </div>
+    <div class="kutu2">
+        <h1>Hava Durumu</h1>
+        <p>bir şehir seçiniz.</p>
+        <label for="şehirler">şehirler</label>
+        <select name="şehirler" id="şehirler">
+            <option value="amsterdam">Amsterdam</option>
+    <option value="lyon">Lyon</option>
+    <option value="prag">Prag</option>
+    <option value="çorum">Çorum</option>
+        </select>
+        <input type="button" value="göster" onclick="fetch()">   
+        <script src="api.js">
+    </script>   
+    </div>
+    <script src="main.js">
+    </script>   
+</body>
+</html>
+//main.js kodları
+function topla() {
+    var input1 = document.getElementById('input1').value;
+    var input2 = document.getElementById('input2').value;
+    var result = parseFloat(input1) + parseFloat(input2);
+    if (!isNaN(result)) {
+        document.getElementById('sonuc').value = result;
+    }else {
+        document.getElementById('sonuc').value = 'Geçersiz giriş';
+    }
+}
+function çarp() {
+    var input1 = document.getElementById('input1').value;
+    var input2 = document.getElementById('input2').value;
+    var result = parseFloat(input1) * parseFloat(input2);
+    if (!isNaN(result)) {
+        document.getElementById('sonuc').value = result;
+    }else {
+        document.getElementById('sonuc').value = 'Geçersiz giriş';
+    }
+}
+function böl() {
+    var input1 = document.getElementById('input1').value;
+    var input2 = document.getElementById('input2').value;
+    var result = parseFloat(input1) / parseFloat(input2);
+    if (!isNaN(result)) {
+        document.getElementById('sonuc').value = result;
+    }else {
+        document.getElementById('sonuc').value = 'Geçersiz giriş';
+    }
+}
+function çıkar() {
+    var input1 = document.getElementById('input1').value;
+    var input2 = document.getElementById('input2').value;
+    var result = parseFloat(input1) - parseFloat(input2);
+    if (!isNaN(result)) {
+        document.getElementById('sonuc').value = result;
+    }else {
+        document.getElementById('sonuc').value = 'Geçersiz giriş';
+    }
+}
+console.log('Bu bir JavaScript örneğidir.');
